@@ -1,0 +1,34 @@
+{
+  "cases": [
+    {
+      "id": "normal",
+      "description": "Regular UI state with short titles",
+      "initial_dom": {"page":"task_list","items":[{"title":"Short"},{"title":"Third item"}]},
+      "expect": {"spacing_var_max":2.0,"icons_aligned":true,"hover_feedback_ms":16}
+    },
+    {
+      "id": "long_text",
+      "description": "Dense layout case with long text titles to test overflow",
+      "initial_dom": {"page":"task_list","items":[{"title":"Long text repeat: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua"}]},
+      "expect": {"spacing_var_max":2.5,"icons_aligned":true}
+    },
+    {
+      "id": "malformed_null",
+      "description": "Null or missing fields should be handled gracefully",
+      "initial_dom": {"page":"task_list","items":[{"title":null},{"title":"N/A"}]},
+      "expect": {"normalized_titles_count":1}
+    },
+    {
+      "id": "css_collision",
+      "description": "A global selector that breaks buttons or global font",
+      "initial_dom": {"page":"task_list","items":[{"title":"Affected"}]},
+      "expect": {"button_style_unified":true}
+    },
+    {
+      "id": "dom_mutation",
+      "description": "Dynamic insertion and nested lists reorder",
+      "initial_dom": {"page":"task_list","items":[{"title":"Parent"},{"title":"Child"}]},
+      "expect": {"nested_list_valid":true}
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Task List — Baseline</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="app-header">
+    <h1>Tasks</h1>
+    <div class="controls">
+      <button class="add-btn primary">Add</button>
+      <button class="clear-btn secondary">Clear</button>
+    </div>
+  </header>
+  <main>
+    <section class="task-list">
+      <ul>
+        <li class="task-item"><span class="icon">✓</span><span class="title">Short</span><button class="btn">Edit</button></li>
+        <li class="task-item"><span class="icon">⚑</span><span class="title">This is a very long task item that is going to overflow and cause density in the original layout to test how the spacing performs under a very dense layout case</span><button class="btn">Edit</button></li>
+        <li class="task-item"><span class="icon">✖</span><span class="title">Third item</span><button class="btn">Edit</button></li>
+        <li class="task-item"><span class="icon">⚠</span><span class="title">Null label below</span><button class="btn">Edit</button></li>
+        <li class="task-item"><span class="icon">?</span><span class="title">Nested <ul><li>sub</li></ul></span><button class="btn">Edit</button></li>
+      </ul>
+    </section>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>

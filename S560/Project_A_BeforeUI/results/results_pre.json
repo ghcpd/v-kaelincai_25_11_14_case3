@@ -1,0 +1,9 @@
+{
+  "timing": 0.234,
+  "spacing_stddev": 7.234,
+  "spacing_samples": [8, 11, 6],
+  "icons_ok": false,
+  "title_count": 5,
+  "titles": ["Short","This is a very long task item that is going to overflow...","Third item","Null label below","Nested sub"],
+  "hover_latency": null
+}
