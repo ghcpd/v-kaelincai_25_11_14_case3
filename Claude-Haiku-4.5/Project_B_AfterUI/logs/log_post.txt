@@ -1,0 +1,38 @@
+[2025-11-14T15:10:56.369435] Starting: test_normal_ui_state
+[2025-11-14T15:10:58.028671]   Screenshot: C:\c\chatWorkspace\Project_B_AfterUI\screenshots\screenshot_post_test_normal_ui_state.png
+[2025-11-14T15:10:58.050659]   Found 3 task items
+[2025-11-14T15:10:58.057583]   Header exists: True, Subtitle exists: True
+[2025-11-14T15:10:58.081399]   Add button classes: btn btn-primary
+[2025-11-14T15:10:58.081504] Starting: test_dense_layout_long_text
+[2025-11-14T15:10:58.107886]   Task text length: 88
+[2025-11-14T15:10:58.264903]   Task item padding: 20px 32px
+[2025-11-14T15:10:58.272158] Starting: test_add_task
+[2025-11-14T15:10:58.299761]   Initial tasks: 3
+[2025-11-14T15:10:58.878095]   Tasks after add: 4
+[2025-11-14T15:10:59.009243] Starting: test_delete_task
+[2025-11-14T15:10:59.034865]   Initial tasks: 3
+[2025-11-14T15:10:59.582871]   Tasks after delete: 2
+[2025-11-14T15:10:59.709791] Starting: test_hover_feedback
+[2025-11-14T15:10:59.807707]   Delete button hover background: rgba(254, 226, 226, 0.624)
+[2025-11-14T15:10:59.807905]   Delete button hover border: rgb(233, 109, 109)
+[2025-11-14T15:11:00.007297]   Task item hover background: rgb(249, 250, 251)
+[2025-11-14T15:11:00.074480]   Add button hover background: rgb(102, 126, 234)
+[2025-11-14T15:11:00.212528] Starting: test_checkbox_interaction
+[2025-11-14T15:11:00.249026]   Checkbox checked before: False
+[2025-11-14T15:11:00.315893]   Checkbox checked after: True
+[2025-11-14T15:11:00.316077]   Title color: rgb(156, 163, 175)
+[2025-11-14T15:11:00.316149]   Title decoration: line-through
+[2025-11-14T15:11:00.463042] Starting: test_responsive_layout
+[2025-11-14T15:11:00.500643]   desktop - container border-radius: 12px
+[2025-11-14T15:11:00.651084]   Screenshot at desktop: C:\c\chatWorkspace\Project_B_AfterUI\screenshots\screenshot_post_test_responsive_layout_desktop.png
+[2025-11-14T15:11:00.697993]   tablet - container border-radius: 12px
+[2025-11-14T15:11:00.786181]   Screenshot at tablet: C:\c\chatWorkspace\Project_B_AfterUI\screenshots\screenshot_post_test_responsive_layout_tablet.png
+[2025-11-14T15:11:00.840979]   mobile - container border-radius: 0px
+[2025-11-14T15:11:00.904136]   Screenshot at mobile: C:\c\chatWorkspace\Project_B_AfterUI\screenshots\screenshot_post_test_responsive_layout_mobile.png
+[2025-11-14T15:11:00.904324] Starting: test_visual_hierarchy
+[2025-11-14T15:11:00.959217]   H1 font size: 26.25px
+[2025-11-14T15:11:00.959413]   Subtitle font size: 14.25px
+[2025-11-14T15:11:00.959614]   Task title font size: 15px
+[2025-11-14T15:11:00.978188]   Header background: rgba(0, 0, 0, 0)
+[2025-11-14T15:11:00.978318]   Header padding: 22.5px 22.5px 15px
+[2025-11-14T15:11:01.263454] Results saved to: C:\c\chatWorkspace\Project_B_AfterUI\results\results_post.json
