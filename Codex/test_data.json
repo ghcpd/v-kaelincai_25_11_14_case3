@@ -1,0 +1,136 @@
+[
+  {
+    "id": "normal_density",
+    "description": "Balanced list used as the control layout",
+    "initial_dom": {
+      "page": "task_list",
+      "items": [
+        {"id": "t1", "title": "Draft onboarding flow", "label": "UX", "priority": "medium", "icon": "[note]"},
+        {"id": "t2", "title": "Sync with analytics", "label": "Data", "priority": "low", "icon": "[chart]"},
+        {"id": "t3", "title": "Ship build", "label": "Release", "priority": "high", "icon": "[rocket]"}
+      ],
+      "hover": false
+    },
+    "expected_layout_snapshot": {
+      "spacing_variance_threshold": 2,
+      "button_height": 36,
+      "icon_alignment": "baseline"
+    },
+    "css_rules_to_validate": [
+      "Buttons share identical height",
+      "Icons do not shift on hover"
+    ],
+    "screenshots_required": ["normal_density"],
+    "expected": {"pre": "fail", "post": "pass"}
+  },
+  {
+    "id": "dense_text",
+    "description": "Edge case with extra long content and metadata",
+    "initial_dom": {
+      "page": "task_list",
+      "items": [
+        {"id": "t4", "title": "Document process for quarterly compliance reviews and approvals", "label": "Ops", "priority": "high", "icon": "[alert]"},
+        {"id": "t5", "title": "Migrate remaining backlog cards", "label": "Migration", "priority": "medium", "icon": "[box]"}
+      ],
+      "hover": true
+    },
+    "expected_layout_snapshot": {
+      "spacing_variance_threshold": 2,
+      "button_height": 36,
+      "icon_alignment": "baseline"
+    },
+    "css_rules_to_validate": [
+      "Long text wraps with consistent line height",
+      "Hover feedback added under 16ms"
+    ],
+    "screenshots_required": ["dense_text"],
+    "expected": {"pre": "fail", "post": "pass"}
+  },
+  {
+    "id": "missing_fields",
+    "description": "Malformed payload with null labels and icons",
+    "initial_dom": {
+      "page": "task_list",
+      "items": [
+        {"id": "t6", "title": "Review edge cases", "label": null, "priority": "low", "icon": null},
+        {"id": "t7", "title": null, "label": "Hotfix", "priority": "high", "icon": "[fire]"}
+      ],
+      "hover": false
+    },
+    "expected_layout_snapshot": {
+      "spacing_variance_threshold": 2,
+      "button_height": 36,
+      "icon_alignment": "baseline"
+    },
+    "css_rules_to_validate": [
+      "Null labels fall back to placeholders",
+      "Buttons remain accessible"
+    ],
+    "screenshots_required": ["missing_fields"],
+    "expected": {"pre": "fail", "post": "pass"}
+  },
+  {
+    "id": "css_collision",
+    "description": "Global selectors attempt to override component styles",
+    "initial_dom": {
+      "page": "task_list",
+      "items": [
+        {"id": "t8", "title": "QA interactive states", "label": "QA", "priority": "medium", "icon": "[check]"},
+        {"id": "t9", "title": "Refactor spacing scale", "label": "Design", "priority": "medium", "icon": "[palette]"}
+      ],
+      "hover": true,
+      "global_styles": "body button { border-radius: 0px !important; padding: 4px; }"
+    },
+    "expected_layout_snapshot": {
+      "spacing_variance_threshold": 2,
+      "button_height": 36,
+      "icon_alignment": "baseline"
+    },
+    "css_rules_to_validate": [
+      "Component tokens win over globals",
+      "Buttons keep pill shape"
+    ],
+    "screenshots_required": ["css_collision"],
+    "expected": {"pre": "fail", "post": "pass"}
+  },
+  {
+    "id": "dom_mutation",
+    "description": "Nested subtasks and dynamic reordering stress DOM normalizer",
+    "initial_dom": {
+      "page": "task_list",
+      "items": [
+        {
+          "id": "t10",
+          "title": "Parent Epic",
+          "label": "Program",
+          "priority": "high",
+          "icon": "[compass]",
+          "subtasks": [
+            {"id": "t10a", "title": "Stream A", "priority": "medium"},
+            {"id": "t10b", "title": "Stream B", "priority": "low"}
+          ]
+        },
+        {
+          "id": "t11",
+          "title": "Dynamic reorder hook",
+          "label": "Automation",
+          "priority": "medium",
+          "icon": "[loop]"
+        }
+      ],
+      "hover": true,
+      "mutation": "reorder_on_priority"
+    },
+    "expected_layout_snapshot": {
+      "spacing_variance_threshold": 2,
+      "button_height": 36,
+      "icon_alignment": "baseline"
+    },
+    "css_rules_to_validate": [
+      "Nested lists keep indentation",
+      "Reorder animation preserves gaps"
+    ],
+    "screenshots_required": ["dom_mutation"],
+    "expected": {"pre": "fail", "post": "pass"}
+  }
+]
