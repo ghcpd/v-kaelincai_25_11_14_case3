@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Task List - Before</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>Tasks</h1>
+    <div id="task-list">
+      <div class="task">
+        <div class="left">
+          <img class="icon" src="check.png" alt="check" />
+          <span class="title">Task 1</span>
+        </div>
+        <button class="btn primary small">Done</button>
+      </div>
+      <div class="task dense">
+        <img class="icon" src="alert.png" alt="alert" />
+        <span class="title">This is a very long task label that should wrap but currently creates a cramped layout that looks bad and is not readable</span>
+        <button class="btn">Do it</button>
+      </div>
+      <div class="task malformed">
+        <img class="icon" src="check.png" alt="check" />
+        <span class="title"></span>
+        <button class="btn small primary">Action</button>
+      </div>
+      <ul class="nested">
+        <li class="task"><span class="title">Nested 1</span></li>
+        <li class="task"><span class="title">Nested 2</span></li>
+      </ul>
+    </div>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>

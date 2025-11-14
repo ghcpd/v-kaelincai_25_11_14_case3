@@ -1,0 +1,44 @@
+[
+  {
+    "id": 1,
+    "name": "Normal UI",
+    "page":"task_list",
+    "items":[{"title":"Task 1"},{"title":"Task 2"}],
+    "hover": false,
+    "expect": {"spacing_sd":"<=2","btn_height_dev":"<=2","icons_aligned":true}
+  },
+  {
+    "id": 2,
+    "name": "Dense layout long text",
+    "page":"task_list",
+    "items":[{"title":"Very long task label that should wrap across multiple lines and still respect spacing and alignment to the icon baseline"}],
+    "hover": false,
+    "expect": {"spacing_sd":"<=2","btn_height_dev":"<=2","icons_aligned":true}
+  },
+  {
+    "id": 3,
+    "name": "Malformed missing label",
+    "page":"task_list",
+    "items":[{"title":null}],
+    "hover": false,
+    "expect": {"spacing_sd":"<=4","btn_height_dev":"<=2","icons_aligned":false}
+  },
+  {
+    "id": 4,
+    "name": "CSS collision edge case",
+    "page":"task_list",
+    "items":[{"title":"CSS conflict test"}],
+    "hover": true,
+    "css_collision": true,
+    "expect": {"spacing_sd":"<=2","btn_height_dev":"<=2","icons_aligned":true,"css_collisions_resolved":true}
+  },
+  {
+    "id": 5,
+    "name": "DOM mutation dynamic reorder",
+    "page":"task_list",
+    "items":[{"title":"A"},{"title":"B"},{"title":"C"}],
+    "hover": false,
+    "mutations":[{"op":"move","from":0,"to":2}],
+    "expect": {"spacing_sd":"<=3","btn_height_dev":"<=2"}
+  }
+]
