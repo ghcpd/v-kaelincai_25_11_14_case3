@@ -1,0 +1,152 @@
+Role
+You are a software engineer responsible for implementing and testing the capabilities of AI models on the UI/UX improvement subtype within the Feature & improvement category.
+Your task is to deliver two complete, reproducible projects (before / after) that implement and validate a UI/UX Improvement Scenario for a task-list interface. Each project must include source code (frontend demo + backend mock if applicable), automated tests (unit + E2E), a reproducible environment, one-command execution scripts, layout correctness measurements, visual evidence (screenshots), and all comparison artifacts.
+All artifacts must be saved locally and runnable without external paid services.
+________________________________________
+Title
+Evaluation of Codex-mini, Haiku4.5, S560, S435, Codex on Feature & improvement — UI/UX Improvement Scenario
+________________________________________
+Description
+This experiment evaluates AI models’ ability to design, implement, and verify UI/UX enhancements inside a live web-development environment.
+The baseline interface suffers from poor spacing, inconsistent button styles, mismatched icons, no hover feedback, and visual density that harms readability (Project A — before).
+The improved interface (Project B — after) introduces clean whitespace, clearer visual hierarchy, unified buttons and icons, consistent spacing rules, accessible typography, and modern feedback interactions such as hover/active states.
+Key evaluation criteria include:
+•	Correctness of UI/UX enhancements and CSS/DOM hierarchy
+•	Visual clarity, spacing, responsiveness, and component consistency
+•	Handling malformed inputs, hidden vulnerabilities, non-string inputs, and complex nested DOM/CSS
+•	Automated test generation and test correctness
+•	Reproducibility: environment scripts + one-command execution
+•	High-quality screenshots showing before/after differences
+•	Quantitative metrics such as layout correctness, spacing consistency, DOM-mutation validity, and interaction coverage
+________________________________________
+Requirements for the AI Model Output
+1. Test Scenario & Description
+•	Describe the task-list UI/UX scenario being tested.
+•	Provide structured input/output formats (JSON or Python dict). Example DOM state input:
+•	{"page":"task_list","items":[{"title":"Task 1"}],"hover":false}
+Expected “after” output: consistent spacing, normalized font sizes, aligned icons, hover feedback.
+•	Define acceptance criteria:
+o	spacing variance ≤ 2px
+o	consistent button height
+o	icons aligned on baseline
+o	hover feedback applied within 16ms
+o	no malformed DOM structure in nested list items
+________________________________________
+2. Test Data Generation
+Generate at least 5 structured test cases covering:
+1.	Normal UI states
+2.	Dense layout case with long text
+3.	Malformed or missing fields (e.g., null labels)
+4.	CSS-collision edge case (e.g., conflicting global selectors)
+5.	DOM-mutation edge case (e.g., nested lists, dynamic reorder)
+Each test case must include:
+•	initial DOM
+•	expected layout snapshot
+•	CSS rules to validate
+•	screenshots required
+•	expected pass/fail fields
+________________________________________
+3. Reproducible Environment
+Provide:
+•	requirements.txt
+•	setup.sh or Dockerfile
+•	minimal frontend (HTML/CSS/JS)
+•	automated test tools (pytest + Playwright/Selenium)
+•	instructions on how to run Project A & B locally
+•	artifact directory structure
+•	compatibility with the persistent execution workflow (port 3000, incremental changes)
+________________________________________
+4. Test Code
+Provide Python test code that:
+a. Starts the local web demo server
+b. Automates UI interactions (click, hover, resize, scroll)
+c. Captures DOM/CSS snapshots
+d. Computes layout metrics (spacing deltas, alignment checks, hierarchy correctness)
+e. Validates visual consistency rules
+f. Saves screenshots for before/after
+g. Generates results_pre.json and results_post.json
+h. Logs DOM tree diffs and CSS differences
+Unit tests must validate:
+•	spacing calculation logic
+•	alignment checker
+•	malformed input handling
+•	DOM tree normalizer functions
+________________________________________
+5. Execution Scripts
+Each project must include:
+•	run_tests.sh — build environment, start server, run tests, collect screenshots/logs/results
+•	a root-level run_all.sh — executes Project A then Project B and generates:
+o	aggregated results
+o	diff logs
+o	compare_report.md
+One command must run the entire evaluation.
+________________________________________
+6. Expected Output
+For each test case:
+•	results_pre.json, results_post.json
+•	log_pre.txt, log_post.txt
+•	screenshots:
+o	screenshot_pre_<id>.png
+o	screenshot_post_<id>.png
+•	metrics such as:
+o	spacing deviation
+o	number of misaligned elements
+o	CSS-collision resolution
+o	hover feedback latency
+•	time_pre.txt / time_post.txt for UI render timing
+•	compare_report.md summarizing all improvements
+________________________________________
+7. Documentation / Explanation
+Provide README.md explaining:
+•	how to run each project
+•	how tests are executed
+•	how UI screenshots are collected
+•	interpretation of spacing/hierarchy metrics
+•	pitfalls such as:
+o	global CSS side effects
+o	inconsistent margin collapse
+o	DOM mutation race conditions
+•	recommended mitigations
+________________________________________
+Deliverables
+Project A – Before UI/UX Improvement
+Folder name: Project_A_BeforeUI
+•	src/ — baseline dense layout, inconsistent buttons/icons, no spacing system
+•	tests/ — test_pre_unit.py, test_pre_e2e.py
+•	screenshots/ — screenshot_pre_<id>.png
+•	logs/ — log_pre.txt
+•	results/ — results_pre.json, time_pre.txt
+•	requirements.txt, setup.sh, run_tests.sh
+________________________________________
+Project B – After UI/UX Improvement
+Folder name: Project_B_AfterUI
+•	src/ — improved spacing, unified components, responsive design, hover/active feedback
+•	tests/ — test_post_unit.py, test_post_e2e.py
+•	screenshots/ — screenshot_post_<id>.png
+•	logs/ — log_post.txt
+•	results/ — results_post.json, time_post.txt
+•	requirements.txt, setup.sh, run_tests.sh
+________________________________________
+Shared Artifacts (repo root)
+•	test_data.json
+•	run_all.sh
+•	compare_report.md
+•	/results/ aggregated outputs
+•	README.md
+________________________________________
+Goal
+Deliver two fully reproducible project folders that demonstrate and validate the UI/UX improvement scenario.
+Provide automated unit & E2E tests, layout correctness metrics, interaction validations, screenshots proving UI changes, logs, machine-readable results, and a final comparison report summarizing improvements, risks, and recommendations.
+
+
+Outcome
+
+Baseline demo models the “before” problems with tight, inconsistent gutters and button treatments, implemented via Project_A_BeforeUI/src/static/style.css (line 1) plus the accompanying static markup/js assets and server.
+The “after” demo now renders a responsive grid with unified typography, spacing, button states, and hover feedback as defined in Project_B_AfterUI/src/static/style.css (line 1), and the data/script adjustments keep baseline behavior for comparison.
+Both E2E suites now capture spacing, alignment, hover latency, DOM/CSS snapshots, and screenshots while writing results_*/log_*/time_* (see Project_A_BeforeUI/tests/test_pre_e2e.py (line 15) and Project_B_AfterUI/tests/test_post_e2e.py (line 19) for the measurement logic).
+Shared artifacts include the structured scenarios in test_data.json (line 2), the orchestrating run_all.sh (line 1), the consolidated README instructions at README.md (line 1), aggregated diff metrics at results/diff_metrics.json (line 1), and the comparison narrative in compare_report.md; screenshots are stored per project (Project_A_BeforeUI/screenshots/screenshot_pre_1.png, Project_B_AfterUI/screenshots/screenshot_post_1.png) and mirrored under results/ for quick reference.
+Testing
+
+python -m pytest tests/test_pre_unit.py tests/test_pre_e2e.py (Project_A_BeforeUI)
+python -m pytest tests/test_post_unit.py tests/test_post_e2e.py (Project_B_AfterUI)
+Note: bash run_all.sh cannot execute here because the sandbox lacks WSL/Bash; I ran each project’s commands manually, copied artifacts into /results, and regenerated the diff/report via Python to match the script’s intent.

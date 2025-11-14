@@ -1,0 +1,20 @@
+{
+  "metrics": {
+    "spacing_deviation": 0.0,
+    "misaligned_icons": 3,
+    "hover_latency_ms": 38.14,
+    "css_sample": {
+      "padding": "5px 6px",
+      "margin": "6px 0px 0px",
+      "gap": "8px",
+      "background": "rgb(255, 255, 255) none repeat scroll 0% 0% / auto padding-box border-box"
+    },
+    "dom_snapshot_length": 2387,
+    "dom_snapshot": "<!DOCTYPE html><html lang=\"en\"><head>\n  <meta charset=\"UTF-8\">\n  <meta name=\"viewport\" content=\"width=device-width,initial-scale=1\">\n  <title>Task Dashboard \ufffd\ufffd Baseline</title>\n  <link rel=\"stylesheet\" href=\"style.css\">\n</head>\n<body>\n  <header>\n    <h1>Task Dashboard (Baseline)</h1>\n    <p class=\"subtitle\">Dense layout, inconsistent controls</p>\n  </header>\n  <main>\n    <section id=\"task-list\" aria-live=\"polite\"><article class=\"task-card\" data-index=\"0\">\n      <span class=\"task-icon\">??</span>\n      <div>\n        <p class=\"task-title\">Audit inbound leads</p>\n        <p class=\"task-category\">sales</p>\n        <p class=\"note\">Needs PR review</p>\n      </div>\n      <span class=\"badge pending\">Awaiting</span>\n      <div class=\"task-actions\">\n        <button class=\"primary\">Plan</button>\n     ",
+    "spacing_values": [
+      6.0,
+      6.0,
+      6.0
+    ]
+  }
+}

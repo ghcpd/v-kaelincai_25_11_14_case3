@@ -1,0 +1,18 @@
+Metrics:
+{
+  "spacing_variance": 0.0,
+  "misaligned_icons": 2,
+  "hover_latency_ms": 38.21,
+  "css_sample": {
+    "padding": "18px",
+    "borderRadius": "14px",
+    "gap": "10px",
+    "background": "rgb(255, 255, 255) none repeat scroll 0% 0% / auto padding-box border-box"
+  },
+  "dom_hash": 4010315873,
+  "spacing_values": [
+    20.0,
+    20.0
+  ],
+  "dom_length": 4361
+}

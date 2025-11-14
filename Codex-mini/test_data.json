@@ -1,0 +1,49 @@
+{
+  "test_cases": [
+    {
+      "id": "normal",
+      "description": "Standard task list with short titles",
+      "initial_dom": {"page": "task_list", "items": [{"title": "Design audit"}], "hover": false},
+      "expected_layout": {"spacing": 14, "button_height": 32, "icons_baseline": true},
+      "css_rules": [".task-card{gap<=16px}", ".actions button{height==32px}"],
+      "screenshot": "required",
+      "expected": {"pass": true, "notes": "Spacing variance within 2px"}
+    },
+    {
+      "id": "dense",
+      "description": "Dense layout with long, multi-line content",
+      "initial_dom": {"page": "task_list", "items": [{"title": "Deep dive into multi-line audit and backlog refinement exercise"}], "hover": false},
+      "expected_layout": {"spacing": 12, "rows": 4, "wrap": true},
+      "css_rules": [".task-card{min-height>=120px}", ".task-note{line-height>=1.4}"],
+      "screenshot": "required",
+      "expected": {"pass": true, "notes": "Long titles wrap cleanly"}
+    },
+    {
+      "id": "malformed",
+      "description": "Missing labels or nulls are normalized",
+      "initial_dom": {"page": "task_list", "items": [{"title": null, "category": "ops"}], "hover": false},
+      "expected_layout": {"fallback_title": "Untitled Task", "status": "pending"},
+      "css_rules": [".task-title{color!=""}"],
+      "screenshot": "optional",
+      "expected": {"pass": false, "notes": "Normalization handles null input"}
+    },
+    {
+      "id": "css_collision",
+      "description": "Global selectors introducing margin/padding collisions",
+      "initial_dom": {"page": "task_list", "items": [{"title": "Margin reset test"}], "hover": true},
+      "expected_layout": {"margin": "consistent", "reset": true},
+      "css_rules": ["body *{margin:0}" , ".task-card{margin:6px}"],
+      "screenshot": "required",
+      "expected": {"pass": true, "notes": "Scoped selectors override global collision"}
+    },
+    {
+      "id": "dom_mutation",
+      "description": "Nested lists + runtime reorder",
+      "initial_dom": {"page": "task_list", "items": [{"title": "Parent" , "children": [{"title": "Child"}]}], "hover": false},
+      "expected_layout": {"nested": true, "reordered": true},
+      "css_rules": [".task-card .task-note{padding-left>=8px}"],
+      "screenshot": "required",
+      "expected": {"pass": true, "notes": "Nested DOM normalized"}
+    }
+  ]
+}
