@@ -1,0 +1,2 @@
+Log length pre: 1206
+Log length post: 373
