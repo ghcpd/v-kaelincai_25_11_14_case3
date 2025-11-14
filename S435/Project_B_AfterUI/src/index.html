@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Task List - After</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="page">
+    <header>
+      <h1>Tasks</h1>
+    </header>
+    <main class="container" id="task-list">
+      <div class="task">
+        <div class="left">
+          <svg class="icon" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+          <span class="title">Task 1</span>
+        </div>
+        <button class="btn primary">Done</button>
+      </div>
+      <div class="task dense">
+        <svg class="icon" viewBox="0 0 24 24"><path d="M1 21h22L12 2 1 21z"/></svg>
+        <span class="title">This is a very long task label that should wrap but now has proper spacing, line-height and an accessible truncation behavior on small screens.</span>
+        <button class="btn">Do it</button>
+      </div>
+      <div class="task malformed">
+        <svg class="icon" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+        <span class="title">(untitled)</span>
+        <button class="btn primary">Action</button>
+      </div>
+      <ul class="nested">
+        <li class="task"><span class="title">Nested 1</span></li>
+        <li class="task"><span class="title">Nested 2</span></li>
+      </ul>
+    </main>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>

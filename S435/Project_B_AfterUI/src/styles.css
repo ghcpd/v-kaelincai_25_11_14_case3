@@ -1,0 +1,32 @@
+/* Improved UI: spacing system, consistent buttons, hover/active feedback, accessible typography */
+:root{
+  --space-xxs:4px; --space-xs:8px; --space-sm:12px; --space-md:16px; --space-lg:24px;
+  --btn-height:36px; --border-radius:6px; --font-size:16px; --line-height:1.4;
+}
+*{box-sizing:border-box}
+body{font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, Arial; background:#fafafa; color:#111}
+.page{max-width:760px;margin:var(--space-lg) auto;padding:0 12px}
+header h1{font-size:24px;margin:0 0 var(--space-md) 0}
+.container{background:#fff;border:1px solid #e6e6e6;border-radius:8px;padding:var(--space-md)}
+.task{display:flex;align-items:center;justify-content:space-between;padding:var(--space-sm) var(--space-md);gap:var(--space-md);border-bottom:1px solid #f0f0f0}
+.task:last-child{border-bottom:0}
+.left{display:flex;align-items:center;gap:var(--space-sm)}
+.icon{width:20px;height:20px;fill:#666}
+.title{font-size:var(--font-size);line-height:var(--line-height);color:#222}
+.task .btn{height:var(--btn-height);padding:0 var(--space-md);border-radius:var(--border-radius);border:1px solid transparent;background:#f7f7f7}
+.btn.primary{background:#1a73e8;color:#fff;border-color:#1765d6}
+.btn{cursor:pointer;transition:transform .08s ease, box-shadow .08s ease, background .08s}
+.btn:hover{transform:translateY(-2px);box-shadow:0 2px 8px rgba(20,20,20,.08)}
+.task:hover{background:#fcfcfd}
+.dense .title{font-size:14px}
+.nested{margin-left: var(--space-lg);padding:0}
+/* Layout rules ensuring consistent button height and icon baseline alignment */
+.btn, .icon {align-self:center}
+
+/* Responsive */
+@media (max-width:480px){
+  .page{padding:0 8px}
+  .title{font-size:14px}
+  .task{flex-direction:column;align-items:flex-start}
+  .btn{align-self:flex-end}
+}
