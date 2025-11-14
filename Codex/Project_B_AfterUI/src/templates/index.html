@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Project B - Improved Task List</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}" />
+    {% if case_payload.initial_dom.global_styles %}
+    <style data-source="case-global">{{ case_payload.initial_dom.global_styles|safe }}</style>
+    {% endif %}
+  </head>
+  <body class="after-ui" data-variant="post">
+    <script id="case-data" type="application/json">{{ case_payload|tojson }}</script>
+    <header class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">Sprint board</p>
+        <h1>Streamlined Task Console</h1>
+        <p>Modern vertical rhythm, unified icons, and accessible hover states.</p>
+      </div>
+      <div class="hero-actions">
+        <button class="btn ghost">Dismiss</button>
+        <button class="btn solid">Add Task</button>
+      </div>
+    </header>
+
+    <main class="task-board" data-page="{{ case_payload.initial_dom.page }}">
+      <ul class="task-list" data-task-list role="list">
+        {% for item in items %}
+        <li class="task-card" data-task-item data-task-id="{{ item.id }}">
+          <div class="task-media">
+            <span class="task-icon" data-icon aria-hidden="true">{{ item.icon }}</span>
+          </div>
+          <div class="task-body">
+            <p class="task-title" role="heading" aria-level="2">{{ item.title }}</p>
+            <div class="task-meta">
+              <span class="task-label">{{ item.label }}</span>
+              <span class="task-priority" data-priority="{{ item.priority }}">{{ item.priority }}</span>
+            </div>
+            {% if item.subtasks %}
+            <ul class="subtask-list" role="list">
+              {% for sub in item.subtasks %}
+              <li class="subtask" data-subtask-id="{{ sub.id }}">
+                <span class="subtask-indicator" aria-hidden="true"></span>
+                <span class="subtask-title">{{ sub.title }}</span>
+              </li>
+              {% endfor %}
+            </ul>
+            {% endif %}
+          </div>
+          <div class="task-actions" data-task-actions>
+            <button class="btn subtle" data-action="snooze">Snooze</button>
+            <button class="btn solid" data-action="complete">Complete</button>
+          </div>
+        </li>
+        {% endfor %}
+      </ul>
+    </main>
+
+    <script src="{{ url_for('static', filename='app.js') }}" defer></script>
+  </body>
+</html>

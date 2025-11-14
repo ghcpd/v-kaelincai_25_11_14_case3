@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Project A - Baseline Task List</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}" />
+    {% if global_styles %}
+    <style id="injected-global">{{ global_styles|safe }}</style>
+    {% endif %}
+  </head>
+  <body class="before-ui" data-variant="pre">
+    <script id="case-data" type="application/json">{{ case_payload|tojson }}</script>
+    <header class="hero">
+      <div class="hero-copy">
+        <h1>Task Console</h1>
+        <p>Baseline layout lacking spacing rules.</p>
+      </div>
+      <button class="hero-btn">Primary</button>
+    </header>
+
+    <main class="task-board" data-page="{{ case_payload.initial_dom.page }}">
+      <section class="task-list" data-task-list>
+        {% for item in items %}
+        <div class="task-row" data-task-item data-task-id="{{ item.id }}">
+          <span class="task-icon" data-icon>{{ item.icon }}</span>
+          <div class="task-content">
+            <div class="task-title">{{ item.title }}</div>
+            <div class="task-meta">
+              <span class="task-label">{{ item.label }}</span>
+              <span class="task-priority priority-{{ item.priority }}">{{ item.priority }}</span>
+            </div>
+            {% if item.subtasks %}
+            <div class="subtask-wrapper" data-subtasks>
+              {% for sub in item.subtasks %}
+              <div class="subtask" data-subtask-id="{{ sub.id }}">{{ sub.title }}</div>
+              {% endfor %}
+            </div>
+            {% endif %}
+          </div>
+          <div class="task-actions">
+            <button class="ghost">...</button>
+            <button class="pill">Mark Done</button>
+          </div>
+        </div>
+        {% endfor %}
+      </section>
+    </main>
+
+    <script src="{{ url_for('static', filename='app.js') }}" defer></script>
+  </body>
+</html>
