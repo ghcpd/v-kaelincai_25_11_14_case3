@@ -1,0 +1,219 @@
+{
+  "test_cases": [
+    {
+      "id": "normal_ui_state",
+      "name": "Normal UI State",
+      "description": "Standard task list with 3 items, normal spacing, all interactive elements visible",
+      "category": "normal",
+      "initial_dom": {
+        "page": "task_list",
+        "items": [
+          {
+            "id": "task_1",
+            "title": "Buy groceries",
+            "completed": false
+          },
+          {
+            "id": "task_2",
+            "title": "Review project proposal",
+            "completed": false
+          },
+          {
+            "id": "task_3",
+            "title": "Call dentist",
+            "completed": false
+          }
+        ],
+        "hover": false,
+        "focus": false
+      },
+      "expected_layout": {
+        "spacing_variance_px": 2,
+        "min_button_height_px": 36,
+        "min_item_padding_px": 12,
+        "heading_font_size_rem": 2,
+        "item_gap_rem": 1
+      },
+      "acceptance_criteria": {
+        "spacing_variance": "≤ 2px",
+        "consistent_button_height": true,
+        "icons_aligned": true,
+        "hover_feedback": true,
+        "valid_dom": true
+      },
+      "css_rules_to_validate": [
+        ".task-item { padding: ... }",
+        ".btn { transition: ... }",
+        ".task-checkbox:hover { ... }",
+        ".delete-btn { width: ..., height: ... }"
+      ],
+      "expected_pass": true
+    },
+    {
+      "id": "dense_layout_long_text",
+      "name": "Dense Layout with Long Text",
+      "description": "Task item with very long text that wraps multiple lines, testing text overflow handling",
+      "category": "edge_case",
+      "initial_dom": {
+        "page": "task_list",
+        "items": [
+          {
+            "id": "task_long",
+            "title": "This is a very long task title that contains multiple sentences and should test text wrapping behavior without breaking the layout or causing overflow issues that harm readability and visual hierarchy",
+            "completed": false
+          }
+        ],
+        "hover": false
+      },
+      "expected_layout": {
+        "spacing_variance_px": 2,
+        "line_height_rem": 1.5,
+        "max_width_respected": true,
+        "no_horizontal_scroll": true
+      },
+      "acceptance_criteria": {
+        "text_wraps_correctly": true,
+        "alignment_preserved": true,
+        "buttons_still_visible": true,
+        "spacing_maintained": true
+      },
+      "css_rules_to_validate": [
+        ".task-title { overflow-wrap: break-word, word-wrap: break-word }",
+        ".task-item { flex: ... }"
+      ],
+      "expected_pass": true
+    },
+    {
+      "id": "malformed_missing_fields",
+      "name": "Malformed Input - Missing Fields",
+      "description": "Task with null/empty title, missing id, undefined values",
+      "category": "malformed",
+      "initial_dom": {
+        "page": "task_list",
+        "items": [
+          {
+            "id": null,
+            "title": "",
+            "completed": null
+          },
+          {
+            "id": "task_valid",
+            "title": null,
+            "completed": false
+          }
+        ]
+      },
+      "expected_layout": {
+        "no_rendering_error": true,
+        "graceful_fallback": true
+      },
+      "acceptance_criteria": {
+        "no_dom_corruption": true,
+        "malformed_handled_safely": true,
+        "default_values_applied": true
+      },
+      "css_rules_to_validate": [
+        "Element visibility",
+        "No broken flex layout"
+      ],
+      "expected_pass": true
+    },
+    {
+      "id": "css_collision_edge_case",
+      "name": "CSS Collision Edge Case",
+      "description": "Test for conflicting global selectors and margin collapse behavior",
+      "category": "edge_case",
+      "initial_dom": {
+        "page": "task_list",
+        "items": [
+          {
+            "id": "task_1",
+            "title": "Task 1",
+            "completed": false
+          },
+          {
+            "id": "task_2",
+            "title": "Task 2",
+            "completed": false
+          }
+        ]
+      },
+      "expected_layout": {
+        "consistent_item_spacing": true,
+        "no_margin_collapse": true,
+        "vertical_rhythm_maintained": true
+      },
+      "acceptance_criteria": {
+        "spacing_between_items_consistent": true,
+        "no_double_borders": true,
+        "alignment_correct": true
+      },
+      "css_rules_to_validate": [
+        ".task-item { border-bottom: ... }",
+        ".task-item:last-child { border-bottom: none }"
+      ],
+      "expected_pass": true
+    },
+    {
+      "id": "nested_dom_mutation",
+      "name": "Nested DOM Mutation - Dynamic Reorder",
+      "description": "Test dynamic addition/removal of tasks, nested list operations, and DOM stability",
+      "category": "dom_mutation",
+      "initial_dom": {
+        "page": "task_list",
+        "items": [
+          {"id": "task_1", "title": "First", "completed": false},
+          {"id": "task_2", "title": "Second", "completed": false}
+        ]
+      },
+      "mutations": [
+        {
+          "type": "add",
+          "item": {"id": "task_3", "title": "Third new task", "completed": false}
+        },
+        {
+          "type": "remove",
+          "id": "task_1"
+        },
+        {
+          "type": "toggle",
+          "id": "task_2"
+        }
+      ],
+      "expected_layout": {
+        "valid_dom_after_mutations": true,
+        "spacing_preserved": true,
+        "event_handlers_attached": true
+      },
+      "acceptance_criteria": {
+        "no_orphaned_elements": true,
+        "layout_integrity": true,
+        "interactivity_maintained": true
+      },
+      "expected_pass": true
+    }
+  ],
+  "layout_metrics": {
+    "spacing_tolerance_px": 2,
+    "button_height_min_px": 36,
+    "button_height_max_px": 48,
+    "item_padding_min_px": 12,
+    "gap_min_rem": 0.75,
+    "focus_outline_width_px": 2,
+    "hover_feedback_latency_ms": 16
+  },
+  "dom_validation_rules": {
+    "no_empty_text_nodes": false,
+    "no_orphaned_elements": true,
+    "semantic_html_required": true,
+    "aria_labels_for_buttons": true,
+    "proper_list_structure": true
+  },
+  "visual_feedback_rules": {
+    "hover_state_required": true,
+    "active_state_required": true,
+    "focus_outline_required": true,
+    "transition_timing_ms": 150,
+    "disabled_state_feedback": true
+  }
+}

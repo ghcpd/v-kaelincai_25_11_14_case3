@@ -1,0 +1,25 @@
+[2025-11-14T15:10:48.425671] Starting: test_normal_ui_state
+[2025-11-14T15:10:50.016334]   Screenshot: C:\c\chatWorkspace\Project_A_BeforeUI\screenshots\screenshot_pre_test_normal_ui_state.png
+[2025-11-14T15:10:50.034529]   Found 3 task items
+[2025-11-14T15:10:50.038120]   Input field exists: True
+[2025-11-14T15:10:50.040908]   Add button exists: True
+[2025-11-14T15:10:50.041055] Starting: test_dense_layout_long_text
+[2025-11-14T15:10:50.066827]   Task text length: 88
+[2025-11-14T15:10:50.136084]   Task title bounding box: {'x': 415, 'y': 102, 'width': 453, 'height': 30}
+[2025-11-14T15:10:50.142122] Starting: test_add_task
+[2025-11-14T15:10:50.167718]   Initial tasks: 3
+[2025-11-14T15:10:50.734627]   Tasks after add: 4
+[2025-11-14T15:10:50.793859] Starting: test_delete_task
+[2025-11-14T15:10:50.820024]   Initial tasks: 3
+[2025-11-14T15:10:51.366675]   Tasks after delete: 2
+[2025-11-14T15:10:51.422886] Starting: test_hover_feedback
+[2025-11-14T15:10:51.513391]   Delete button hover color: rgb(255, 34, 34)
+[2025-11-14T15:10:51.623715]   Task item hover background: rgb(249, 249, 249)
+[2025-11-14T15:10:51.623881] Starting: test_checkbox_interaction
+[2025-11-14T15:10:51.647576]   Checkbox checked before: False
+[2025-11-14T15:10:51.689540]   Checkbox checked after: True
+[2025-11-14T15:10:51.753903] Starting: test_responsive_layout
+[2025-11-14T15:10:51.810223]   Screenshot at desktop: C:\c\chatWorkspace\Project_A_BeforeUI\screenshots\screenshot_pre_test_responsive_layout_desktop.png
+[2025-11-14T15:10:51.902063]   Screenshot at tablet: C:\c\chatWorkspace\Project_A_BeforeUI\screenshots\screenshot_pre_test_responsive_layout_tablet.png
+[2025-11-14T15:10:51.969528]   Screenshot at mobile: C:\c\chatWorkspace\Project_A_BeforeUI\screenshots\screenshot_pre_test_responsive_layout_mobile.png
+[2025-11-14T15:10:52.175216] Results saved to: C:\c\chatWorkspace\Project_A_BeforeUI\results\results_pre.json

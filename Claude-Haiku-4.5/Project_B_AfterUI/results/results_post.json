@@ -1,0 +1,69 @@
+[
+  {
+    "test_id": "test_normal_ui_state",
+    "status": "PASSED",
+    "task_items": 3,
+    "has_header": true,
+    "has_subtitle": true,
+    "screenshot": "C:\\c\\chatWorkspace\\Project_B_AfterUI\\screenshots\\screenshot_post_test_normal_ui_state.png",
+    "timestamp": "2025-11-14T15:10:58.081497"
+  },
+  {
+    "test_id": "test_dense_layout_long_text",
+    "status": "PASSED",
+    "has_horizontal_scroll": false,
+    "task_padding": "20px 32px",
+    "screenshot": "C:\\c\\chatWorkspace\\Project_B_AfterUI\\screenshots\\screenshot_post_test_dense_layout_long_text.png"
+  },
+  {
+    "test_id": "test_add_task",
+    "status": "PASSED",
+    "initial_count": 3,
+    "final_count": 4,
+    "screenshot": "C:\\c\\chatWorkspace\\Project_B_AfterUI\\screenshots\\screenshot_post_test_add_task.png"
+  },
+  {
+    "test_id": "test_delete_task",
+    "status": "PASSED",
+    "initial_count": 3,
+    "final_count": 2,
+    "screenshot": "C:\\c\\chatWorkspace\\Project_B_AfterUI\\screenshots\\screenshot_post_test_delete_task.png"
+  },
+  {
+    "test_id": "test_hover_feedback",
+    "status": "PASSED",
+    "delete_btn_hover_bg": "rgba(254, 226, 226, 0.624)",
+    "delete_btn_hover_border": "rgb(233, 109, 109)",
+    "task_item_hover_bg": "rgb(249, 250, 251)",
+    "add_btn_hover_bg": "rgb(102, 126, 234)",
+    "screenshot": "C:\\c\\chatWorkspace\\Project_B_AfterUI\\screenshots\\screenshot_post_test_hover_feedback_hover_all.png"
+  },
+  {
+    "test_id": "test_checkbox_interaction",
+    "status": "PASSED",
+    "checked_before": false,
+    "checked_after": true,
+    "has_completed_class": true,
+    "title_color": "rgb(156, 163, 175)",
+    "title_decoration": "line-through",
+    "screenshot": "C:\\c\\chatWorkspace\\Project_B_AfterUI\\screenshots\\screenshot_post_test_checkbox_interaction.png"
+  },
+  {
+    "test_id": "test_responsive_layout",
+    "status": "PASSED",
+    "viewports_tested": [
+      "desktop",
+      "tablet",
+      "mobile"
+    ]
+  },
+  {
+    "test_id": "test_visual_hierarchy",
+    "status": "PASSED",
+    "h1_font_size": "26.25px",
+    "subtitle_font_size": "14.25px",
+    "task_title_font_size": "15px",
+    "header_background": "rgba(0, 0, 0, 0)",
+    "screenshot": "C:\\c\\chatWorkspace\\Project_B_AfterUI\\screenshots\\screenshot_post_test_visual_hierarchy.png"
+  }
+]

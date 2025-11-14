@@ -1,0 +1,101 @@
+/* BEFORE: Poor spacing, inconsistent buttons, dense layout */
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+}
+
+.container {
+    max-width: 500px;
+    margin: 5px auto;
+    padding: 5px;
+    background-color: white;
+}
+
+h1 {
+    font-size: 24px;
+    margin: 2px 0;
+    color: #333;
+}
+
+.task-input-section {
+    display: flex;
+    margin: 3px 0;
+}
+
+#taskInput {
+    flex: 1;
+    padding: 2px;
+    border: 1px solid #999;
+    font-size: 14px;
+}
+
+#addBtn {
+    padding: 2px 8px;
+    margin-left: 2px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.task-list {
+    list-style: none;
+    margin-top: 3px;
+}
+
+.task-item {
+    display: flex;
+    align-items: center;
+    padding: 4px;
+    margin: 1px 0;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 0;
+}
+
+.task-checkbox {
+    margin-right: 4px;
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+}
+
+.task-title {
+    flex: 1;
+    font-size: 13px;
+    color: #333;
+    word-wrap: break-word;
+}
+
+.delete-btn {
+    padding: 1px 4px;
+    margin-left: 2px;
+    background-color: #ff4444;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    border-radius: 0;
+}
+
+.delete-btn:hover {
+    background-color: #ff2222;
+}
+
+#taskInput:focus {
+    outline: 1px solid #007bff;
+}
+
+@media (max-width: 600px) {
+    .container {
+        margin: 2px;
+        padding: 3px;
+    }
+}

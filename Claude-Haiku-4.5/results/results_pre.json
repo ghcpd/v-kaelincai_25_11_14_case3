@@ -1,0 +1,52 @@
+[
+  {
+    "test_id": "test_normal_ui_state",
+    "status": "PASSED",
+    "task_items": 3,
+    "screenshot": "C:\\c\\chatWorkspace\\Project_A_BeforeUI\\screenshots\\screenshot_pre_test_normal_ui_state.png",
+    "timestamp": "2025-11-14T15:10:50.041046"
+  },
+  {
+    "test_id": "test_dense_layout_long_text",
+    "status": "PASSED",
+    "has_horizontal_scroll": false,
+    "screenshot": "C:\\c\\chatWorkspace\\Project_A_BeforeUI\\screenshots\\screenshot_pre_test_dense_layout_long_text.png"
+  },
+  {
+    "test_id": "test_add_task",
+    "status": "PASSED",
+    "initial_count": 3,
+    "final_count": 4,
+    "screenshot": "C:\\c\\chatWorkspace\\Project_A_BeforeUI\\screenshots\\screenshot_pre_test_add_task.png"
+  },
+  {
+    "test_id": "test_delete_task",
+    "status": "PASSED",
+    "initial_count": 3,
+    "final_count": 2,
+    "screenshot": "C:\\c\\chatWorkspace\\Project_A_BeforeUI\\screenshots\\screenshot_pre_test_delete_task.png"
+  },
+  {
+    "test_id": "test_hover_feedback",
+    "status": "PASSED",
+    "delete_btn_hover_color": "rgb(255, 34, 34)",
+    "task_item_hover_bg": "rgb(249, 249, 249)",
+    "screenshot": "C:\\c\\chatWorkspace\\Project_A_BeforeUI\\screenshots\\screenshot_pre_test_hover_feedback_hover.png"
+  },
+  {
+    "test_id": "test_checkbox_interaction",
+    "status": "PASSED",
+    "checked_before": false,
+    "checked_after": true,
+    "screenshot": "C:\\c\\chatWorkspace\\Project_A_BeforeUI\\screenshots\\screenshot_pre_test_checkbox_interaction.png"
+  },
+  {
+    "test_id": "test_responsive_layout",
+    "status": "PASSED",
+    "viewports_tested": [
+      "desktop",
+      "tablet",
+      "mobile"
+    ]
+  }
+]
